@@ -11,7 +11,7 @@ import com.tdd.isbn.ISBNValidator.ValidadorISBN;
 public class ValidadorISBNTest {
 
 	@Test
-	public void checkValidoISBN() {
+	public void checkValido10NumerosISBN() {
 		ValidadorISBN validador = new ValidadorISBN();
 		boolean result = validador.checkISBN("0140449116");
 		assertTrue(result);
@@ -22,21 +22,26 @@ public class ValidadorISBNTest {
 		ValidadorISBN validador = new ValidadorISBN();
 		validador.checkISBN("9788550800653");
 
-		
-		
 	}
 
 	@Test
-	public void numerosValidosTerminadosComX() {
+	public void DezNumerosValidosTerminadosComX() {
 		ValidadorISBN validador = new ValidadorISBN();
 		boolean result = validador.checkISBN("012000030X");
 		assertTrue(result);
 	}
 
 	@Test
-	public void checkInvalidoISBN() {
+	public void DezNumerosCheckInvalidoISBN() {
 		ValidadorISBN validador = new ValidadorISBN();
 		boolean result = validador.checkISBN("0140449117");
+		assertFalse(result);
+	}
+	
+	@Test
+	public void TrezeNumerosCheckInvalidoISBN() {
+		ValidadorISBN validador = new ValidadorISBN();
+		boolean result = validador.checkISBN("9788550800652");
 		assertFalse(result);
 	}
 
